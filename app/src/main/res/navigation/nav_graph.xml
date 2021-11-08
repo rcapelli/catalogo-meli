@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    android:label="¡Buscá tu próxima compra!"
+    app:startDestination="@id/frgSearchProduct">
+
+    <fragment
+        android:id="@+id/frgSearchProduct"
+        android:name="com.rcapelli.catalogoonline.FrgSearchProduct"
+        android:label="@string/what_ru_search"
+        tools:layout="@layout/fragment_search_product">
+        <action
+            android:id="@+id/action_frgSearchProduct_to_frgProductList"
+            app:destination="@id/frgProductList" />
+    </fragment>
+    <fragment
+        android:id="@+id/frgProductList"
+        android:name="com.rcapelli.catalogoonline.FrgProductList"
+        android:label="@string/what_dou_like"
+        tools:layout="@layout/fragment_product_list">
+        <action
+            android:id="@+id/action_frgProductList_to_frgSearchProduct"
+            app:destination="@id/frgSearchProduct" />
+        <action
+            android:id="@+id/action_frgProductList_to_frgProductDetail"
+            app:destination="@id/frgProductDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/frgProductDetail"
+        android:name="com.rcapelli.catalogoonline.FrgProductDetail"
+        android:label="@string/product_detail"
+        tools:layout="@layout/fragment_product_detail">
+        <action
+            android:id="@+id/action_frgProductDetail_to_frgProductList"
+            app:destination="@id/frgProductList" />
+    </fragment>
+</navigation>

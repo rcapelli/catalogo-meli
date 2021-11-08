@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="marginHorizontal">32dp</dimen>
+    <dimen name="marginHeader">32dp</dimen>
+    <dimen name="marginMedium">16dp</dimen>
+    <dimen name="paddingButton">16dp</dimen>
+    <dimen name="marginSmall">4dp</dimen>
+    <dimen name="ts16">16sp</dimen>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="tvs_detail_product">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/ts16</item>
+    </style>
+    <style name="tvs_detail_product_margin" parent="tvs_detail_product">
+        <item name="android:layout_marginTop">@dimen/marginMedium</item>
+    </style>
+</resources>
