@@ -1,10 +1,13 @@
 package com.rcapelli.catalogoonline.models
 
+import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 import com.rcapelli.catalogoonline.repository.ProductsRepository
+import java.lang.Exception
 
 class ProductViewModel : ViewModel() {
 
@@ -31,16 +34,24 @@ class ProductViewModel : ViewModel() {
     fun getProducts() = productsFound.value
 
     fun getProductsFromApi(prod: String, listener: (ProductsResponse?) -> Unit){
-        ProductsRepository.getProductsFromApi(prod){
-            if (it != null && it.results.isNotEmpty()){
-                this.setProducts(it)
-                listener(it)
+        try {
+            ProductsRepository.getProductsFromApi(prod){
+                if (it != null && it.results.isNotEmpty()){
+                    Log.d(it.query,"producto encontrado")
+                    this.setProducts(it)
+                    listener(it)
+                }
+                else{
+                    Log.d("","no se encontraron productos")
+                    this.setProducts(null)
+                    listener(null)
+                }
             }
-            else{
-                this.setProducts(null)
-                listener(null)
-            }
+        }catch (e: Exception){
+            Log.d("error","ocurrió un error al intentar llamar al servicio")
+            return listener(null)
         }
+
     }
 
     fun setChosenProduct(product: SearchResult){
